@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="k2">
+	<name>K2 Extended Image</name>
+	<author>Hari Karam Singh</author>
+	<creationDate>Jan 2011</creationDate>
+	<copyright>Copyright (C) 2011 Amritvela. All rights reserved.</copyright>
+	<license>http://www.opensource.org/licenses/gpl-2.0</license>
+	<authorEmail>sacredstudio@amritvela.com</authorEmail>
+	<version>1.0</version>
+	<description>Allow more flexible handling of item image's such as fit height/width, cropping and individual size previewing and 
+	overrides. K2 "width" values are used as the largest dimension constraint (width for landscape, height for portrait) with the 
+	smaller constraint being calculated from this value and the chosen aspect ratio.</description>
+	<files>
+		<filename plugin="extendedimage">extendedimage.php</filename>
+		<folder>extendedimage</folder>
+	</files>
+	
+	<params addpath="/administrator/components/com_k2/elements">
+	
+		<!-- ######################### XSmall ######################### -->
+    	<param name="" type="header" default="XSmall Images" label="" description="" />
+    	<param name="xs_method" label="Resize Method" default="fit" description="" type="list">
+			<option value="fit">Fit Box</option>
+			<option value="crop">Crop</option>
+			<option value="fit_w">Fit Width Only</option>
+			<option value="fit_h">Fit Height Only</option>
+		</param> 
+		<param name="xs_aspect_ratio" label="Aspect Ratio" default="1:1" description="&lt;strong&gt;Fit Box&lt;/strong&gt;&lt;br/&gt;Resizes while maintaining the original image's aspect ratio to ensure BOTH dimensions fit in the box defined by the K2 value scaled to the aspect ratio specified here.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Crop&lt;/strong&gt;&lt;br/&gt;Resizes the image by one dimension and crops the other to end up with an image the exact size defined by the K2 value and the aspect ratio specified here." type="list">
+			<option value="1:1">1:1 (square)</option>
+			<option value="4:3">4:3</option>	
+			<option value="3:2">3:2</option>	
+			<option value="16:9">16:9</option>	
+		</param> 
+	
+		<!-- ######################### Small ######################### -->
+    	<param name="" type="header" default="Small Images" label="" description="" />
+    	<param name="s_method" label="Resize Method" default="fit" description="" type="list">
+			<option value="fit">Fit Box</option>
+			<option value="crop">Crop</option>
+			<option value="fit_w">Fit Width Only</option>
+			<option value="fit_h">Fit Height Only</option>
+		</param> 
+		<param name="s_aspect_ratio" label="Aspect Ratio" default="1:1" description="&lt;strong&gt;Fit Box&lt;/strong&gt;&lt;br/&gt;Resizes while maintaining the original image's aspect ratio to ensure BOTH dimensions fit in the box defined by the K2 value scaled to the aspect ratio specified here.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Crop&lt;/strong&gt;&lt;br/&gt;Resizes the image by one dimension and crops the other to end up with an image the exact size defined by the K2 value and the aspect ratio specified here." type="list">
+			<option value="1:1">1:1 (square)</option>
+			<option value="4:3">4:3</option>	
+			<option value="3:2">3:2</option>	
+			<option value="16:9">16:9</option>	
+		</param> 
+	
+		<!-- ######################### Medium ######################### -->
+    	<param name="" type="header" default="Medium Images" label="" description="" />
+    	<param name="m_method" label="Resize Method" default="fit" description="" type="list">
+			<option value="fit">Fit Box</option>
+			<option value="crop">Crop</option>
+			<option value="fit_w">Fit Width Only</option>
+			<option value="fit_h">Fit Height Only</option>
+		</param> 
+		<param name="m_aspect_ratio" label="Aspect Ratio" default="1:1" description="&lt;strong&gt;Fit Box&lt;/strong&gt;&lt;br/&gt;Resizes while maintaining the original image's aspect ratio to ensure BOTH dimensions fit in the box defined by the K2 value scaled to the aspect ratio specified here.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Crop&lt;/strong&gt;&lt;br/&gt;Resizes the image by one dimension and crops the other to end up with an image the exact size defined by the K2 value and the aspect ratio specified here." type="list">
+			<option value="1:1">1:1 (square)</option>
+			<option value="4:3">4:3</option>	
+			<option value="3:2">3:2</option>	
+			<option value="16:9">16:9</option>	
+		</param> 
+	
+		<!-- ######################### Large ######################### -->
+    	<param name="" type="header" default="Large Images" label="" description="" />
+    	<param name="l_method" label="Resize Method" default="fit" description="" type="list">
+			<option value="fit">Fit Box</option>
+			<option value="crop">Crop</option>
+			<option value="fit_w">Fit Width Only</option>
+			<option value="fit_h">Fit Height Only</option>
+		</param> 
+		<param name="l_aspect_ratio" label="Aspect Ratio" default="1:1" description="&lt;strong&gt;Fit Box&lt;/strong&gt;&lt;br/&gt;Resizes while maintaining the original image's aspect ratio to ensure BOTH dimensions fit in the box defined by the K2 value scaled to the aspect ratio specified here.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Crop&lt;/strong&gt;&lt;br/&gt;Resizes the image by one dimension and crops the other to end up with an image the exact size defined by the K2 value and the aspect ratio specified here." type="list">
+			<option value="1:1">1:1 (square)</option>
+			<option value="4:3">4:3</option>	
+			<option value="3:2">3:2</option>	
+			<option value="16:9">16:9</option>	
+		</param> 
+	
+		<!-- ######################### XLarge ######################### -->
+    	<param name="" type="header" default="XLarge Images" label="" description="" />
+    	<param name="xl_method" label="Resize Method" default="fit" description="" type="list">
+			<option value="fit">Fit Box</option>
+			<option value="crop">Crop</option>
+			<option value="fit_w">Fit Width Only</option>
+			<option value="fit_h">Fit Height Only</option>
+		</param> 
+		<param name="xl_aspect_ratio" label="Aspect Ratio" default="1:1" description="&lt;strong&gt;Fit Box&lt;/strong&gt;&lt;br/&gt;Resizes while maintaining the original image's aspect ratio to ensure BOTH dimensions fit in the box defined by the K2 value scaled to the aspect ratio specified here.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Crop&lt;/strong&gt;&lt;br/&gt;Resizes the image by one dimension and crops the other to end up with an image the exact size defined by the K2 value and the aspect ratio specified here." type="list">
+			<option value="1:1">1:1 (square)</option>
+			<option value="4:3">4:3</option>	
+			<option value="3:2">3:2</option>	
+			<option value="16:9">16:9</option>	
+		</param> 
+	
+		<!-- ######################### Generic ######################### -->
+    	<param name="" type="header" default="Generic Images" label="" description="" />
+    	<param name="generic_method" label="Resize Method" default="fit" description="" type="list">
+			<option value="fit">Fit Box</option>
+			<option value="crop">Crop</option>
+			<option value="fit_w">Fit Width Only</option>
+			<option value="fit_h">Fit Height Only</option>
+		</param> 
+		<param name="generic_aspect_ratio" label="Aspect Ratio" default="1:1" description="&lt;strong&gt;Fit Box&lt;/strong&gt;&lt;br/&gt;Resizes while maintaining the original image's aspect ratio to ensure BOTH dimensions fit in the box defined by the K2 value scaled to the aspect ratio specified here.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;Crop&lt;/strong&gt;&lt;br/&gt;Resizes the image by one dimension and crops the other to end up with an image the exact size defined by the K2 value and the aspect ratio specified here." type="list">
+			<option value="1:1">1:1 (square)</option>
+			<option value="4:3">4:3</option>	
+			<option value="3:2">3:2</option>	
+			<option value="16:9">16:9</option>	
+		</param> 
+	</params>
+	
+	<params group="advanced" addpath="/administrator/components/com_k2/elements">
+		<param name="" type="header" default="XSmall Images" label="" description="" />
+    	<param name="xs_quality" label="JPEG Quality (%)" default="" description="Blank or 0 to use Desired Filesize or K2 global setting." type="text" size="6"/>
+    	<param name="xs_filesize" label="Or Desired Filesize (kB)" default="" description="Estimated size in kB's for the resultant JPEG.  Set the quality value above to 0 or blank to use this method.  Set both values to blank to use the K2 global quality setting." type="text" size="6"/>
+
+		<param name="" type="header" default="Small Images" label="" description="" />
+    	<param name="s_quality" label="JPEG Quality (%)" default="" description="Blank or 0 to use Desired Filesize or K2 global setting." type="text" size="6"/>
+    	<param name="s_filesize" label="Or Desired Filesize (kB)" default="" description="Estimated size in kB's for the resultant JPEG.  Set the quality value above to 0 or blank to use this method.  Set both values to blank to use the K2 global quality setting." type="text" size="6"/>
+
+		<param name="" type="header" default="Medium Images" label="" description="" />
+    	<param name="m_quality" label="JPEG Quality (%)" default="" description="Blank or 0 to use Desired Filesize or K2 global setting." type="text" size="6"/>
+    	<param name="m_filesize" label="Or Desired Filesize (kB)" default="" description="Estimated size in kB's for the resultant JPEG.  Set the quality value above to 0 or blank to use this method.  Set both values to blank to use the K2 global quality setting." type="text" size="6"/>
+
+		<param name="" type="header" default="Large Images" label="" description="" />
+    	<param name="l_quality" label="JPEG Quality (%)" default="" description="Blank or 0 to use Desired Filesize or K2 global setting." type="text" size="6"/>
+    	<param name="l_filesize" label="Or Desired Filesize (kB)" default="" description="Estimated size in kB's for the resultant JPEG.  Set the quality value above to 0 or blank to use this method.  Set both values to blank to use the K2 global quality setting." type="text" size="6"/>
+
+		<param name="" type="header" default="XLarge Images" label="" description="" />
+    	<param name="xl_quality" label="JPEG Quality (%)" default="" description="Blank or 0 to use Desired Filesize or K2 global setting." type="text" size="6"/>
+    	<param name="xl_filesize" label="Or Desired Filesize (kB)" default="" description="Estimated size in kB's for the resultant JPEG.  Set the quality value above to 0 or blank to use this method.  Set both values to blank to use the K2 global quality setting." type="text" size="6"/>
+		
+		<param name="" type="header" default="Generic Images" label="" description="" />
+    	<param name="generic_quality" label="JPEG Quality (%)" default="" description="Blank or 0 to use Desired Filesize or K2 global setting." type="text" size="6"/>
+    	<param name="generic_filesize" label="Or Desired Filesize (kB)" default="" description="Estimated size in kB's for the resultant JPEG.  Set the quality value above to 0 or blank to use this method.  Set both values to blank to use the K2 global quality setting." type="text" size="6"/>
+	</params>
+	
+	<params group="item-image" addpath="/plugins/k2/extendedimage/elements">
+		<param name="_xs_override" label="XSmall Override" type="k2extendedimage"/>
+		<param name="_s_override" label="Small Override" type="k2extendedimage"/>
+		<param name="_m_override" label="Medium Override" type="k2extendedimage"/>
+		<param name="_l_override" label="Large Override" type="k2extendedimage"/>
+		<param name="_xl_override" label="XLarge Override" type="k2extendedimage"/>
+		<param name="_generic_override" label="Generic Override" type="k2extendedimage"/>
+	</params>
+	
+</install>
