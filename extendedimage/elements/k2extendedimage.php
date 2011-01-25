@@ -52,7 +52,7 @@ class JElementK2ExtendedImage extends JElement
 		$html .= '</td></tr></table>';
 		
 		// Add JS if not done already
-		if (!$this->_js) {
+		if (!JElementK2ExtendedImage::$_js) {
 			JFactory::getDocument()->addScriptDeclaration("
 				
 				window.addEvent('domready', function () { 
