@@ -108,15 +108,29 @@ class plgK2ExtendedImage extends K2Plugin
 		if (@isset($item->k2ExtImageWidth) && ($item->k2ExtImageWidth == $item->imageWidth))
 			return;
 
-		$prop = 'image' . $item->params->get('itemImgSize');
+		// Get the image property name in the item object based on the item's group
+		switch (@$item->itemGroup)
+		{
+			case 'leading':
+			case 'secondary':
+			case 'link':
+				$prop = 'image' . $item->params->get($item->itemGroup. 'ImgSize');
+				break;
+			default:	// item view
+				$prop = 'image' . $item->params->get('itemImgSize');
+		}
+
 		$imageUrl = $item->$prop;
+		if (empty($imageUrl))
+			return;
+
 		$info = getimagesize(JPATH_SITE.DS.'media'.DS.'k2'.DS.'items'.DS.'cache'.DS.pathinfo($imageUrl, PATHINFO_BASENAME));
 
 		$item->imageWidth = $info[0];
 		$item->k2ExtImageWidth = $info[0];
 		$item->k2ExtImageHeight = $info[1];
 		$item->k2ExtImageAttr = $info[3];
-		fb($info);
+		
 	}
 
 	/**
