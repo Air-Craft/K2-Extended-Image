@@ -69,7 +69,56 @@ class plgK2ExtendedImage extends K2Plugin
 	
 		parent::__construct($subject, $config);	// loads the plugin params		
 	}
-	
+
+	/**#@+
+	 * Override K2 width settings with our updated ones
+	 *
+	 * K2 uses the parameter specified width as the render width for
+	 * the HTML in the template. As these props are set very late in some templates via
+	 * {@see K2HelperUtilities::setDefaultImage()}, we try several events to ensure things
+	 * are covered in most bases.
+	 */
+	public function onK2CommentsBlock(&$item, &$params, $limitstart)
+	{
+		$this->_setItemImageSizes($item);
+	}
+	public function onK2CommentsCounter(&$item, &$params, $limitstart)
+	{
+		$this->_setItemImageSizes($item);
+	}
+	public function onK2BeforeDisplay($item, &$params, $limitstart)
+	{
+		$this->_setItemImageSizes($item);
+	}
+	/**#@-*/
+
+	/**
+	 * Set the imageWidth prop to the correct value.
+	 *
+	 * Also added properties k2ExtImageWidth, k2ExtImageHeight, and k2ExtImageAttr
+	 * for use in templates when K2's event flow overwrites imageWidth too late
+	 * for our hooks
+	 *
+	 * @param object $item K2 Item
+	 * @todo Calculate from params rather than read the file, for efficiency
+	 */
+	private function _setItemImageSizes($item)
+	{
+		// Don't process if already done...
+		if (@isset($item->k2ExtImageWidth) && ($item->k2ExtImageWidth == $item->imageWidth))
+			return;
+
+		$prop = 'image' . $item->params->get('itemImgSize');
+		$imageUrl = $item->$prop;
+		$info = getimagesize(JPATH_SITE.DS.'media'.DS.'k2'.DS.'items'.DS.'cache'.DS.pathinfo($imageUrl, PATHINFO_BASENAME));
+
+		$item->imageWidth = $info[0];
+		$item->k2ExtImageWidth = $info[0];
+		$item->k2ExtImageHeight = $info[1];
+		$item->k2ExtImageAttr = $info[3];
+		fb($info);
+	}
+
 	/**
 	 * Preliminary setup required before the item processes
 	 */
